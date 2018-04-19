@@ -11,8 +11,8 @@ from lxml.etree import XPathError
 from scrapple.selectors.selector import Selector
 from scrapple.utils.text import make_ascii
 import json
-from lxml import etree
 from lxml import cssselect
+from lxml.etree import fromstring
 
 try:
 	from urlparse import urljoin
@@ -34,7 +34,7 @@ class ApiSelector(Selector):
 		super(ApiSelector, self).__init__(url, header_options)
 		if path != '':
 			self.json_data = json.loads(self.content)[path]
-			self.tree = etree.HTML(self.json_data)
+			self.tree = fromstring(self.json_data)
 		else:
 			self.json_data = json.loads(self.content)
 		
