@@ -70,6 +70,7 @@ class ApiSelector(Selector):
 				return self.url
 			sel = cssselect.CSSSelector(selector)
 			if attr == "text":
+				print(etree.tostring(self.tree))
 				tag = sel(self.tree)[0]
 				content = connector.join([make_ascii(x).strip() for x in tag.itertext()])
 				content = content.replace("\n", " ").strip()				
