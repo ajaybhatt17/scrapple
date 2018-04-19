@@ -67,8 +67,10 @@ class ApiSelector(Selector):
 		print("method started")
 		try:
 			selector, attr, default, connector = [kwargs.get(x, '') for x in ['selector', 'attr', 'default', 'connector']]
+			print(kwargs)
+			print(args)
 			print([selector, attr, default, connector])
-			print(etree.tostring(self.tree))
+			# print(etree.tostring(self.tree))
 			if selector == "url":
 				return self.url
 			sel = cssselect.CSSSelector(selector)
