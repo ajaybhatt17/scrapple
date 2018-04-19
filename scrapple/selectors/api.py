@@ -66,7 +66,7 @@ class ApiSelector(Selector):
 		"""
 		print("method started")
 		try:
-			selector, attr, default, connector = [kwargs.get(x, '') for x in ['selector', 'attr', 'default', 'connector']]
+			selector, attr, default, connector = [args.get(x, '') for x in ['selector', 'attr', 'default', 'connector']]
 			print(kwargs)
 			print(args)
 			print([selector, attr, default, connector])
