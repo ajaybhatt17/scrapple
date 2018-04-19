@@ -66,12 +66,13 @@ class ApiSelector(Selector):
 			selector, attr, default, connector = [kwargs.get(x, '') for x in ['selector', 'attr', 'default', 'connector']]
 			if selector == "url":
 				return self.url
+			sel = cssselect.CSSSelector(selector)
 			if attr == "text":
-				tag = self.tree.xpath(selector)[0]
+				tag = sel(self.tree)[0]
 				content = connector.join([make_ascii(x).strip() for x in tag.itertext()])
-				content = content.replace("\n", " ").strip()
+				content = content.replace("\n", " ").strip()				
 			else:
-				content = self.tree.xpath(selector)[0].get(attr)
+				content = sel(self.tree)[0].get(attr)
 				if attr in ["href", "src"]:
 					content = urljoin(self.url, content)
 			return content
@@ -79,8 +80,6 @@ class ApiSelector(Selector):
 			if default is not "":
 				return default
 			raise Exception("There is no content for the selector " + selector)
-		except XPathError:
-			raise Exception("Invalid XPath selector " + selector)
 
 
 	def extract_links(self, *args, **kwargs):
