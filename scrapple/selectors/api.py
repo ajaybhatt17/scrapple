@@ -67,11 +67,12 @@ class ApiSelector(Selector):
 		print("method started")
 		try:
 			selector, attr, default, connector = [kwargs.get(x, '') for x in ['selector', 'attr', 'default', 'connector']]
+			print([selector, attr, default, connector])
+			print(etree.tostring(self.tree))
 			if selector == "url":
 				return self.url
 			sel = cssselect.CSSSelector(selector)
 			if attr == "text":
-				print(etree.tostring(self.tree))
 				tag = sel(self.tree)[0]
 				content = connector.join([make_ascii(x).strip() for x in tag.itertext()])
 				content = content.replace("\n", " ").strip()				
