@@ -64,6 +64,7 @@ class ApiSelector(Selector):
 		:return: The extracted content
 
 		"""
+		print("method started")
 		try:
 			selector, attr, default, connector = [kwargs.get(x, '') for x in ['selector', 'attr', 'default', 'connector']]
 			if selector == "url":
