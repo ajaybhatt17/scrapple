@@ -23,12 +23,12 @@ class XpathSelector(Selector):
 
 	"""
 	
-	def __init__(self, url):
+	def __init__(self, url, header_options={}):
 		"""
 		The ``Selector`` class acts as the super class for this class.
 
 		"""
-		super(XpathSelector, self).__init__(url)
+		super(XpathSelector, self).__init__(url, header_options)
 
 
 	def extract_content(self, *args, **kwargs):

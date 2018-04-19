@@ -20,7 +20,7 @@ class Selector(object):
 
 	"""
 	
-	def __init__(self, url):
+	def __init__(self, url, header_options={}):
 		"""
 		The URL of the web page to be loaded is validated - ensuring the schema has \
 		been specified, and that the URL is valid. A HTTP GET request is made to load \
@@ -35,6 +35,7 @@ class Selector(object):
 				'Accept-Encoding': 'identity, compress, gzip', 
 				'Accept': '*/*'
 			}
+			headers.update(header_options)
 			headers['User-Agent'] = random.choice([
 				'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:30.0) Gecko/20100101 Firefox/30.0',
 				'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:34.0) Gecko/20100101 Firefox/34.0',
