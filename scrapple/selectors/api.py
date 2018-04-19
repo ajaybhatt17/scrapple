@@ -12,6 +12,7 @@ from scrapple.selectors.selector import Selector
 from scrapple.utils.text import make_ascii
 import json
 from lxml import etree
+from lxml import cssselect
 
 try:
 	from urlparse import urljoin
