@@ -30,10 +30,10 @@ class ApiSelector(Selector):
 
 		"""
 		super(ApiSelector, self).__init__(url, header_options)
-		if (path!='')
+		if path != '':
 			self.json_data = json.loads(self.content)[path]
 			self.tree = etree.HTML(self.json_data)
-		else
+		else:
 			self.json_data = json.loads(self.content)
 		
 
