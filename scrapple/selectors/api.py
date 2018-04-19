@@ -11,6 +11,7 @@ from lxml.etree import XPathError
 from scrapple.selectors.selector import Selector
 from scrapple.utils.text import make_ascii
 import json
+from lxml import etree
 
 try:
 	from urlparse import urljoin
